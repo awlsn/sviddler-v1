@@ -1,3 +1,5 @@
+let draggingCard;
+
 export function draggable(node, data) {
 	let state = data;
 
@@ -5,7 +7,7 @@ export function draggable(node, data) {
 	node.style.cursor = 'grab';
 
 	function handle_dragstart(e) {
-		e.style.opacity = 1;
+		//e.style.opacity = 1;
 		e.dataTransfer.setData('text/plain', state);
 	}
 
@@ -46,6 +48,7 @@ export function dropzone(node, options) {
 		const data = e.dataTransfer.getData('text/plain');
 		e.target.classList.remove(state.dragover_class);
 		state.on_dropzone(data, e);
+		console.log(e.target);
 	}
 
 	node.addEventListener('dragenter', handle_dragenter);
@@ -53,3 +56,5 @@ export function dropzone(node, options) {
 	node.addEventListener('dragover', handle_dragover);
 	node.addEventListener('drop', handle_drop);
 }
+
+

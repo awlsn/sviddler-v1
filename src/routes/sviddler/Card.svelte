@@ -1,5 +1,5 @@
 <script>
-    import {draggable} from "$lib/dnd"
+    import {draggable, dropzone} from "$lib/dnd"
 
     export let letter;
     export let value;
@@ -9,14 +9,10 @@
 </script>
 
 {#if empty}
-    <div use:dropzone={{
-      on_dropzone(letter) {
-        console.log(letter);
-      }
-  }} class="space">
+    <div class="space">
   </div>
 {:else}
-<div use:draggable={letter} class="card">
+<div class="card">
     <div class="top">
         <div>{letter}</div>
         <div>{value}</div>
@@ -33,7 +29,7 @@
 
 <style>
     .card {
-        width: 6rem;
+        width: 8rem;
         background: #fff;
         padding: 1rem;
         border-radius: .5rem;
@@ -56,14 +52,12 @@
     }
 
     .space {
-        width: 6rem;
+        width: 8rem;
+        height: 175px;
         margin: .5rem;
         padding: 1rem;
         border: 3px dashed #aaa;
     }
 
-    :global(.droppable) {
-        outline: 3px dashed red;
-        background: red;
-    }
+    
 </style>
