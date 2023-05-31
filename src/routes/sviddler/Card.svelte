@@ -1,6 +1,5 @@
 <script>
     import {draggable, dropzone} from "$lib/dnd"
-
     export let letter;
     export let value;
     export let empty;
@@ -35,6 +34,7 @@
         border-radius: .5rem;
         font-weight: 400;
         margin: .5rem;
+        cursor: grab;
     }
     .main {
         font-size: 5rem;

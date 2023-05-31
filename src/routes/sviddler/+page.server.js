@@ -11,7 +11,9 @@ export async function load() {
 			allCards.push({ letter, value });
 		}
 	}
-	const cards = shuffle(allCards).slice(0, 5);
+	//const cards = shuffle(allCards).slice(0, 3);
+
+	const cards = shuffle(allCards);
 
 	return {
 		cards
