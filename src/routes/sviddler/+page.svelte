@@ -34,13 +34,21 @@
       {name:"hand",letters:[...hand]},
       {name:"word1",letters:["","",""]}
     ];
+    
   }
 
+  function draw() {
+    //rows[0].letters.push(data.cards.splice(0,1)[0]);
+    hand.push(data.cards.splice(0,1)[0]);
+    setup();
+  }
+
+  function checkWord() {
+    //get word
+    //see if it exists in dictionary
+  }
 
   setup();
-  console.log(data.cards.length);
-  rows[0].letters.push(data.cards.splice(0,1)[0]);
-  console.log(data.cards.length);
   
 
 
@@ -89,7 +97,7 @@
   
   function reset() {
     setup();
-    rows=rows;
+    //rows=rows;
   }
 </script>
 
@@ -100,7 +108,8 @@
 
 {#each rows as row, rowIndex}
 <div class="row">
-  
+  <!--Deck here-->
+  <!--discard pile here-->
   <ul>
     {#each row.letters as letter, letterIndex}
 
@@ -122,7 +131,7 @@
  {/each}
 <div class="row">
   <button on:click={reset}>Reset</button>
-  <button>Draw from deck</button>
+  <button on:click={draw}>Draw from deck</button>
   <button>Draw from discard pile</button>
   <button>Check word</button>
   <button>Discard</button>
